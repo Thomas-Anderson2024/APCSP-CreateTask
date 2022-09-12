@@ -5,6 +5,7 @@ const DOMSelectors = {
   selectedTeam: document.getElementById("teamNames"),
   genderSelect: document.getElementById("teamGender"),
   dataSelector: document.getElementById("dataSelector"),
+  roomNumber: document.getElementById("roomNumber"),
 };
 const teams = [
   {
@@ -14,6 +15,7 @@ const teams = [
     boysCoach: "Evangelos Ginos",
     girlsSeason: "Spring",
     girlsCoach: "Ann Boylan",
+    roomNumber: "Cafeteria",
   },
   {
     sport: "trackAndField",
@@ -22,6 +24,7 @@ const teams = [
     boysCoach: "Scott Crabbe",
     girlsSeason: "Fall, Winter, Spring",
     girlsCoach: "Patricia Mulligan",
+    roomNumber: "153"
   },
   {
     sport: "volleyball",
@@ -30,6 +33,7 @@ const teams = [
     boysCoach: "Austen Rerick",
     girlsSeason: "Fall",
     girlsCoach: "Austen Rerick",
+    roomNumber: "3rd Floor Gym"
   },
   {
     sport: "tableTennis",
@@ -38,6 +42,25 @@ const teams = [
     boysCoach: "Matthew Granite",
     girlsSeason: "Winter",
     girlsCoach: "Amanda Nudelman",
+    roomNumber: "C23",
+  },
+  {
+    sport: "golf",
+    sportName: "Golf",
+    boysSeason: "Spring",
+    boysCoach: "Glenn Markoe",
+    girlsSeason: "Fall",
+    girlsCoach: "Glenn Markoe",
+    roomNumber: "341"
+  },
+  {
+    sport: "swimming",
+    sportName: "Swimming",
+    boysSeason: "Winter",
+    boysCoach: "Ann Boylan",
+    girlsSeason: "Fall",
+    girlsCoach: "Ann Boylan",
+    roomNumber: "402"
   },
 ];
 teams.forEach((team) => {
@@ -52,6 +75,7 @@ teams.forEach((team) => {
     DOMSelectors.teamName.innerHTML = "Sport: " + team.sportName;
     DOMSelectors.coachName.innerHTML = "Coach: " + team.boysCoach;
     DOMSelectors.season.innerHTML = "Season: " + team.boysSeason;
+    DOMSelectors.roomNumber.innerHTML = "Room: " + team.roomNumber;
   }
 });
 
@@ -60,6 +84,7 @@ DOMSelectors.dataSelector.addEventListener("change", function (e) {
   teams.forEach((team) => {
     if (activeTeam.value == team.sport) {
       DOMSelectors.teamName.innerHTML = "Sport: " + team.sportName;
+      DOMSelectors.roomNumber.innerHTML = "Room: " + team.roomNumber;
       if (activeGender.value == "girls") {
         DOMSelectors.coachName.innerHTML = "Coach: " + team.girlsCoach;
         DOMSelectors.season.innerHTML = "Season: " + team.girlsSeason;
@@ -71,19 +96,3 @@ DOMSelectors.dataSelector.addEventListener("change", function (e) {
     e.preventDefault();
   });
 });
-
-// activeGender.addEventListener("change", function () {
-//   teams.forEach((team) => {
-//     if (activeTeam.value == team.sport) {
-//       if ((activeGender.value = "girls")) {
-//         DOMSelectors.coachName.innerHTML = "Coach: " + team.girlsCoach;
-//         DOMSelectors.season.innerHTML = "Season: " + team.girlsSeason;
-//       } else {
-//         if ((activeGender.value = "boys")) {
-//           DOMSelectors.coachName.innerHTML = "Coach: " + team.boysCoach;
-//           DOMSelectors.season.innerHTML = "Season: " + team.boysSeason;
-//         }
-//       }
-//     }
-//   });
-// });
