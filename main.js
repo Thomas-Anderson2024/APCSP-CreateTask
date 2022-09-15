@@ -7,6 +7,7 @@ const DOMSelectors = {
   dataSelector: document.getElementById("dataSelector"),
   roomNumber: document.getElementById("roomNumber"),
 };
+
 const teams = [
   {
     sport: "fencing",
@@ -24,7 +25,7 @@ const teams = [
     boysCoach: "Scott Crabbe",
     girlsSeason: "Fall, Winter, Spring",
     girlsCoach: "Patricia Mulligan",
-    roomNumber: "153"
+    roomNumber: "153",
   },
   {
     sport: "volleyball",
@@ -33,7 +34,7 @@ const teams = [
     boysCoach: "Austen Rerick",
     girlsSeason: "Fall",
     girlsCoach: "Austen Rerick",
-    roomNumber: "3rd Floor Gym"
+    roomNumber: "3rd Floor Gym",
   },
   {
     sport: "tableTennis",
@@ -51,7 +52,7 @@ const teams = [
     boysCoach: "Glenn Markoe",
     girlsSeason: "Fall",
     girlsCoach: "Glenn Markoe",
-    roomNumber: "341"
+    roomNumber: "341",
   },
   {
     sport: "swimming",
@@ -60,9 +61,10 @@ const teams = [
     boysCoach: "Ann Boylan",
     girlsSeason: "Fall",
     girlsCoach: "Ann Boylan",
-    roomNumber: "402"
+    roomNumber: "402",
   },
 ];
+
 teams.forEach((team) => {
   card = document.createElement("option");
   card.value = team.sport;
@@ -78,8 +80,7 @@ teams.forEach((team) => {
     DOMSelectors.roomNumber.innerHTML = "Room: " + team.roomNumber;
   }
 });
-
-DOMSelectors.dataSelector.addEventListener("change", function (e) {
+const stateChange = function () {
   let activeGender = DOMSelectors.genderSelect;
   teams.forEach((team) => {
     if (activeTeam.value == team.sport) {
@@ -93,6 +94,6 @@ DOMSelectors.dataSelector.addEventListener("change", function (e) {
         DOMSelectors.season.innerHTML = "Season: " + team.boysSeason;
       }
     }
-    e.preventDefault();
   });
-});
+};
+DOMSelectors.dataSelector.addEventListener("change", stateChange());
