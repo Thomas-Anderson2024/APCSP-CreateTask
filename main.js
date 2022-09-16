@@ -72,16 +72,8 @@ teams.forEach((team) => {
   DOMSelectors.selectedTeam.insertAdjacentElement("beforeend", card);
 });
 let activeTeam = DOMSelectors.selectedTeam;
-teams.forEach((team) => {
-  if (activeTeam.value == team.sport) {
-    DOMSelectors.teamName.innerHTML = "Sport: " + team.sportName;
-    DOMSelectors.coachName.innerHTML = "Coach: " + team.boysCoach;
-    DOMSelectors.season.innerHTML = "Season: " + team.boysSeason;
-    DOMSelectors.roomNumber.innerHTML = "Room: " + team.roomNumber;
-  }
-});
+let activeGender = DOMSelectors.genderSelect;
 const stateChange = function () {
-  let activeGender = DOMSelectors.genderSelect;
   teams.forEach((team) => {
     if (activeTeam.value == team.sport) {
       DOMSelectors.teamName.innerHTML = "Sport: " + team.sportName;
@@ -97,3 +89,4 @@ const stateChange = function () {
   });
 };
 DOMSelectors.dataSelector.addEventListener("change", stateChange());
+stateChange();
